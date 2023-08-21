@@ -42,19 +42,19 @@ public class MoneyTransferTest {
         //Thread.sleep(5000);
     }
 
-//    @Test
-//    public void shouldGetErrorMessageIfAmountMoreBalance() {
-//        var firstCardInfo = DataGenerator.getFirstCardInfo();
-//        var secondCardInfo = DataGenerator.getSecondCardInfo();
-//        var firstCardBalance = dashboardPage.getCardBalance(firstCardInfo);
-//        var secondCardBalance = dashboardPage.getCardBalance(secondCardInfo);
-//        var amount = DataGenerator.generateInvalidAmount(firstCardBalance);
-//        var transferPage = dashboardPage.selectedCardToTransfer(firstCardInfo);
-//        transferPage.makeTransfer(String.valueOf(amount), secondCardInfo);
-//        transferPage.findErrorMessage("Выполнена попытка перевода суммы, превышающей остаток на карте списания");
-//        var actualBalanceFirstCard = dashboardPage.getCardBalance(firstCardInfo);
-//        var actualBalanceSecondCard = dashboardPage.getCardBalance(secondCardInfo);
-//        assertEquals(firstCardBalance, actualBalanceFirstCard);
-//        assertEquals(secondCardBalance, actualBalanceSecondCard);
-//    }
+    @Test
+    public void shouldGetErrorMessageIfAmountMoreBalance() {
+        var firstCardInfo = DataGenerator.getFirstCardInfo();
+        var secondCardInfo = DataGenerator.getSecondCardInfo();
+        var firstCardBalance = dashboardPage.getCardBalance(firstCardInfo);
+        var secondCardBalance = dashboardPage.getCardBalance(secondCardInfo);
+        var amount = DataGenerator.generateInvalidAmount(firstCardBalance);
+        var transferPage = dashboardPage.selectedCardToTransfer(firstCardInfo);
+        transferPage.makeTransfer(String.valueOf(amount), secondCardInfo);
+        transferPage.findErrorMessage("Выполнена попытка перевода суммы, превышающей остаток на карте списания");
+        var actualBalanceFirstCard = dashboardPage.getCardBalance(firstCardInfo);
+        var actualBalanceSecondCard = dashboardPage.getCardBalance(secondCardInfo);
+        assertEquals(firstCardBalance, actualBalanceFirstCard);
+        assertEquals(secondCardBalance, actualBalanceSecondCard);
+    }
 }
